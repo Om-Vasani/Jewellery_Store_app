@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import ProductCard from '../components/ProductCard'
+import ProductCard from '../ProductCard'
 import { fetchProducts } from '../firebase'
 
 export default function Catalog(){
