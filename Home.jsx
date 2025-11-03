@@ -1,17 +1,17 @@
 import React from 'react'
-import ProductCard from './ProductCard.jsx'
+import ProductCard from '../components/ProductCard.jsx'
 
 export default function Home(){
   return (
-    <section className="hero-gradient py-12">
+    <section id="home" className="header-hero">
       <div className="container">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <div>
             <h1 className="text-4xl md:text-5xl font-serif mb-4">Timeless craftsmanship. <span className="text-gold">Modern elegance.</span></h1>
-            <p className="text-muted mb-6">Amidip Jewellers — handcrafted gold and diamond pieces with hallmark authenticity.</p>
+            <p className="small-muted mb-6">Amidip Jewellers — handcrafted gold and diamond pieces with hallmark authenticity.</p>
             <div className="flex gap-4">
               <button className="btn-gold">Shop Now</button>
-              <button className="border rounded-md px-4 py-2">Learn More</button>
+              <button className="px-4 py-2 rounded-md border">Learn More</button>
             </div>
           </div>
 

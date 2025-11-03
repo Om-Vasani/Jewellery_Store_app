@@ -1,13 +1,11 @@
-# Amidip Jewellers — Luxury UI v3 (React + Vite + Tailwind)
+# Amidip Jewellers - Classic Responsive (React + Vite + Tailwind)
 
-This upgraded Luxury Classic UI uses Playfair Display + Poppins and a refined gold/ivory theme.
+This project is an upgraded classic-elegant UI (gold + ivory) version, fully responsive and Vercel-ready.
 
 ## Quick start
 1. npm install
 2. npm run dev
 
-## Firebase
-Add your Firebase config values in src/lib/firebase.js to enable chat logging.
-
-## Deploy
-Push to GitHub root and import into Vercel (build: vite build, output: dist).
+## Notes
+- Chat uses a local demo AI (src/lib/useChatAI.js). For production, replace with secure OpenAI server.
+- Firebase is not included by default; enable if needed.

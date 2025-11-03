@@ -6,7 +6,7 @@ export default {
       colors: {
         gold: '#B9925F',
         muted: '#6B7280',
-        ivory: '#FDF8F3'
+        ivory: '#FFF9F2'
       },
       fontFamily: {
         serif: ['"Playfair Display"', 'serif'],

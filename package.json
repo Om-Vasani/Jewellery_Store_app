@@ -1,5 +1,5 @@
 {
-  "name": "amidip-jewellers-ui-v3",
+  "name": "amidip-jewellers-classic-responsive",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -10,15 +10,14 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "framer-motion": "^10.12.16",
     "firebase": "^11.0.1"
   },
   "devDependencies": {
     "vite": "^5.4.21",
+    "@vitejs/plugin-react": "^4.3.2",
     "tailwindcss": "^3.4.13",
     "postcss": "^8.4.47",
-    "autoprefixer": "^10.4.20",
-    "@vitejs/plugin-react": "^4.3.2"
+    "autoprefixer": "^10.4.20"
   },
   "engines": {
     "node": ">=18"
