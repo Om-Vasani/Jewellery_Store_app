@@ -1,25 +1,38 @@
-import React from 'react'
-import Chat from './Chat'
+import ProductCard from "./ProductCard";
+import Chat from "./Chat";
 
-export default function Home(){
+export default function Home() {
+  const products = [
+    {
+      name: "Solitaire Diamond Ring",
+      desc: "22K Gold / GIA-certified",
+      price: "85,000",
+      image: "https://cdn-icons-png.flaticon.com/512/177/177892.png",
+    },
+  ];
+
   return (
-    <section className="section container">
-      <div style={{display:'flex',gap:24,flexWrap:'wrap',alignItems:'center'}}>
-        <div style={{flex:1,minWidth:260}}>
-          <h1 style={{fontSize:32,margin:0}}>Timeless craftsmanship. Modern elegance.</h1>
-          <p style={{color:'var(--muted)'}}>Amidip Jewellers — handcrafted gold and diamond pieces with hallmark authenticity.</p>
-        </div>
-        <div style={{width:360}}>
-          <div style={{background:'white',padding:16,borderRadius:12,boxShadow:'0 8px 30px rgba(16,16,16,0.06)'}}>
-            <div style={{display:'flex',justifyContent:'space-between',alignItems:'center'}}>
-              <div><div style={{fontSize:12,color:'var(--muted)'}}>Featured</div><div style={{fontWeight:700}}>Solitaire Diamond Ring</div></div>
-              <div style={{fontSize:36}}>💍</div>
-            </div>
-            <div style={{display:'flex',justifyContent:'space-between',marginTop:12}}><div style={{color:'var(--muted)'}}>22K Gold / GIA-certified</div><div style={{fontWeight:700,color:'var(--gold)'}}>₹85,000</div></div>
-          </div>
+    <section className="bg-ivory min-h-screen py-10">
+      <div className="max-w-6xl mx-auto px-4 text-center">
+        <h2 className="text-3xl md:text-4xl font-serif text-gray-900 mb-4">
+          Timeless craftsmanship. <span className="text-gold">Modern elegance.</span>
+        </h2>
+
+        <p className="text-muted mb-10">
+          Amidip Jewellers — handcrafted gold and diamond pieces with hallmark authenticity.
+        </p>
+
+        <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 justify-center">
+          {products.map((p, i) => (
+            <ProductCard key={i} {...p} />
+          ))}
         </div>
       </div>
-      <Chat />
+
+      {/* Chat Button/Widget */}
+      <div className="fixed bottom-6 right-6">
+        <Chat />
+      </div>
     </section>
-  )
+  );
 }
