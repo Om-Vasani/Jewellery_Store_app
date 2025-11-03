@@ -2,7 +2,7 @@
   "name": "amidip-jewellers-fullstack",
   "version": "1.0.0",
   "private": true,
-  "homepage": ".",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
