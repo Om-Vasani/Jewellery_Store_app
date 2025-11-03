@@ -1,12 +1,12 @@
 import React from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
-import Navbar from './components/Navbar'
-import Home from './pages/Home'
-import Catalog from './pages/Catalog'
-import About from './pages/About'
-import Contact from './pages/Contact'
-import Admin from './pages/Admin'
-import Footer from './components/Footer'
+import Navbar from './Navbar'
+import Home from './Home'
+import Catalog from './Catalog'
+import About from './About'
+import Contact from './Contact'
+import Admin from './Admin'
+import Footer from './Footer'
 
 export default function App(){
   return (
