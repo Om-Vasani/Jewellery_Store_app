@@ -1,27 +1,27 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import React, { useState } from "react";
 
-export default function Navbar(){  
+export default function Navbar() {
+  const [open, setOpen] = useState(false);
   return (
-    <header className="topbar">
-      <div className="container nav">
-        <div style={{display:'flex',alignItems:'center',gap:12,cursor:'pointer'}} onClick={()=>window.location.href='/' }>
-          <div className="logo-mark">A</div>
-          <div>
-            <div style={{fontWeight:700}}>Amidip Jewellers</div>
-            <div style={{fontSize:12,color:'var(--muted)'}}>Varachha Road, Surat</div>
-          </div>
-        </div>
-        <nav>
-          <div className="nav-links">
-            <NavLink to="/" end className={({isActive})=> isActive? 'active':''}>Home</NavLink>
-            <NavLink to="/catalog" className={({isActive})=> isActive? 'active':''}>Catalog</NavLink>
-            <NavLink to="/about" className={({isActive})=> isActive? 'active':''}>About</NavLink>
-            <NavLink to="/contact" className={({isActive})=> isActive? 'active':''}>Contact</NavLink>
-            <NavLink to="/admin" className={({isActive})=> isActive? 'active':''}>Admin</NavLink>
-          </div>
-        </nav>
+    <nav className="bg-white shadow-md sticky top-0 z-50">
+      <div className="max-w-6xl mx-auto flex justify-between items-center px-4 py-3">
+        <h1 className="text-lg font-semibold text-gold">💎 Amidip Jewellers</h1>
+        <button
+          onClick={() => setOpen(!open)}
+          className="md:hidden text-gold focus:outline-none"
+        >
+          ☰
+        </button>
+        <ul className={`md:flex md:space-x-6 text-gray-700 font-medium ${open ? "block mt-4" : "hidden"} md:block`}>
+          {["Home", "Catalog", "About", "Contact", "Admin"].map((item) => (
+            <li key={item}>
+              <a href={`#${item.toLowerCase()}`} className="hover:text-gold block py-2">
+                {item}
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
-    </header>
-  )
+    </nav>
+  );
 }
