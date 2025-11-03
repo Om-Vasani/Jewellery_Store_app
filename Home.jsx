@@ -1,5 +1,5 @@
 import React from 'react'
-import ProductCard from '../components/ProductCard.jsx'
+import ProductCard from './ProductCard.jsx'
 
 export default function Home(){
   return (
