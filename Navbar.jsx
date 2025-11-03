@@ -1,26 +1,21 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
 
-export default function Navbar(){  
+export default function Navbar(){
   return (
-    <header className="topbar">
-      <div className="container nav">
-        <div style={{display:'flex',alignItems:'center',gap:12,cursor:'pointer'}} onClick={()=>window.location.href='/' }>
-          <div className="logo-mark">A</div>
-          <div>
-            <div style={{fontWeight:700}}>Amidip Jewellers</div>
-            <div style={{fontSize:12,color:'var(--muted)'}}>Varachha Road, Surat</div>
-          </div>
+    <header className="bg-white shadow-sm">
+      <div className="container flex items-center justify-between py-4">
+        <div className="flex items-center gap-3">
+          <div className="text-2xl font-bold text-gold">Amidip</div>
+          <div className="text-sm text-muted hidden sm:block">Jewellers</div>
         </div>
-        <nav>
-          <div className="nav-links">
-            <NavLink to="/" end className={({isActive})=> isActive? 'active':''}>Home</NavLink>
-            <NavLink to="/catalog" className={({isActive})=> isActive? 'active':''}>Catalog</NavLink>
-            <NavLink to="/about" className={({isActive})=> isActive? 'active':''}>About</NavLink>
-            <NavLink to="/contact" className={({isActive})=> isActive? 'active':''}>Contact</NavLink>
-            <NavLink to="/admin" className={({isActive})=> isActive? 'active':''}>Admin</NavLink>
-          </div>
+        <nav className="hidden md:flex gap-6 items-center text-sm">
+          <a href="#" className="hover:underline">Home</a>
+          <a href="#" className="hover:underline">Catalog</a>
+          <a href="#" className="hover:underline">Contact</a>
         </nav>
+        <div className="flex items-center gap-3">
+          <button className="px-4 py-2 rounded-md border border-gold text-gold">Cart</button>
+        </div>
       </div>
     </header>
   )

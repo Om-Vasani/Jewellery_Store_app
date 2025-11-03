@@ -1,2 +1,11 @@
 import React from 'react'
-export default function Footer(){ return (<footer className="footer"><div className="container">© {new Date().getFullYear()} Amidip Jewellers — All rights reserved.</div></footer>) }
+
+export default function Footer(){
+  return (
+    <footer className="bg-white mt-12 border-t">
+      <div className="container py-6 text-sm text-muted">
+        © {new Date().getFullYear()} Amidip Jewellers — Crafted with care.
+      </div>
+    </footer>
+  )
+}
