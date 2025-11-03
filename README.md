@@ -1,30 +1,13 @@
-# Amidip Jewellers - Responsive Demo
+# Amidip Jewellers — Luxury UI v3 (React + Vite + Tailwind)
 
-This is a demo React + Vite + Tailwind project prepared as a responsive template with:
-- Simple AI chat (local responses) + optional Firebase logging
-- TailwindCSS setup (configured)
-- Vercel-ready (build: `vite build`, output: `dist/`)
+This upgraded Luxury Classic UI uses Playfair Display + Poppins and a refined gold/ivory theme.
 
 ## Quick start
-
-1. Install
-```
-npm install
-```
-
-2. Development
-```
-npm run dev
-```
-
-3. Build
-```
-npm run build
-```
+1. npm install
+2. npm run dev
 
 ## Firebase
-Open `src/firebaseConfig.js` and add your Firebase config values to enable Firestore logging for chat messages.
+Add your Firebase config values in src/lib/firebase.js to enable chat logging.
 
 ## Deploy
-Push to GitHub and import repo into Vercel (Root Directory should be empty so project root is used). Use build command `npm run build` and output directory `dist`.
-
+Push to GitHub root and import into Vercel (build: vite build, output: dist).

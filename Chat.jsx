@@ -1,62 +1,44 @@
-import React, {useState, useEffect, useRef} from 'react'
-let localResponses = {
-  hello: "Hello! How can I help you with jewellery today?",
-  price: "You can check product price on the product card — or tell me which item and I'll fetch details.",
-  default: "Thanks for your message! Our team will respond shortly."
-}
+import React, {useState, useRef, useEffect} from 'react'
+import useChatAI from '../lib/useChatAI.js'
+import { logChat } from '../lib/firebase.js'
 
 export default function Chat(){
-  const [open, setOpen] = useState(false)
-  const [messages, setMessages] = useState([{from:'bot', text:'Hi — ask me about products, prices or orders.'}])
-  const [value, setValue] = useState('')
-  const boxRef = useRef()
+  const [open,setOpen]=useState(false)
+  const [messages,setMessages]=useState([{from:'bot',text:'Hi — ask me about products.'}])
+  const [value,setValue]=useState('')
+  const boxRef=useRef()
+  const {ask}=useChatAI()
 
-  useEffect(()=>{
-    if(open && boxRef.current){ boxRef.current.scrollTop = boxRef.current.scrollHeight }
-  },[messages,open])
+  useEffect(()=>{ if(open && boxRef.current) boxRef.current.scrollTop = boxRef.current.scrollHeight },[messages,open])
 
-  async function sendMsg(){
+  async function send(){
     if(!value.trim()) return
-    const text = value.trim()
-    setMessages(m=>[...m, {from:'user', text}])
+    const text=value.trim()
+    setMessages(m=>[...m,{from:'user',text}])
     setValue('')
-    const key = text.toLowerCase()
-    let reply = localResponses.default
-    if(key.includes('hello')||key.includes('hi')) reply = localResponses.hello
-    else if(key.includes('price')||key.includes('cost')) reply = localResponses.price
-
-    setTimeout(()=> setMessages(m=>[...m, {from:'bot', text:reply}]), 600)
-
-    try{
-      const { logMessage } = await import('./firebaseConfig.js')
-      if(logMessage) logMessage({text, at: new Date().toISOString()})
-    }catch(e){}
+    const ai = await ask(text)
+    setMessages(m=>[...m,{from:'bot',text:ai.text}])
+    try{ await logChat({text, at: new Date().toISOString()}) }catch(e){}
   }
 
   return (
-    <div className="chat-box">
-      <div style={{position:'relative'}}>
-        {open && (
-          <div className="card" style={{marginBottom:8}}>
-            <div ref={boxRef} style={{maxHeight:320,overflowY:'auto',padding:8}}>
-              {messages.map((m,i)=>(
-                <div key={i} style={{marginBottom:8, textAlign: m.from==='user' ? 'right' : 'left'}}>
-                  <div style={{display:'inline-block',padding:'8px 10px',borderRadius:8, background: m.from==='user' ? '#f3f4f6' : 'white', boxShadow:'0 6px 20px rgba(0,0,0,0.04)'}}>
-                    <div style={{fontSize:14}}>{m.text}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div style={{display:'flex',gap:8,marginTop:8}}>
-              <input value={value} onChange={e=>setValue(e.target.value)} placeholder="Ask about products, price, orders..." className="flex-1 p-2 border rounded-md" />
-              <button onClick={sendMsg} className="px-3 py-2 rounded-md bg-gold text-white">Send</button>
-            </div>
+    <div className="fixed right-6 bottom-6 z-50">
+      {open && (
+        <div className="bg-white p-4 rounded-xl shadow-lg w-80 mb-3">
+          <div ref={boxRef} style={{maxHeight:320, overflowY:'auto'}} className="space-y-2">
+            {messages.map((m,i)=>(
+              <div key={i} className={m.from==='user'?'text-right':'text-left'}>
+                <div className="inline-block p-2 rounded-md" style={{background: m.from==='user' ? '#f3f4f6' : 'white'}}>{m.text}</div>
+              </div>
+            ))}
           </div>
-        )}
-        <button onClick={()=>setOpen(s=>!s)} className="p-3 rounded-full shadow-md" title="Chat with us" aria-label="chat">
-          💬
-        </button>
-      </div>
+          <div className="flex gap-2 mt-3">
+            <input value={value} onChange={e=>setValue(e.target.value)} className="flex-1 p-2 border rounded" placeholder="Ask about products, price, orders..." />
+            <button onClick={send} className="btn-gold">Send</button>
+          </div>
+        </div>
+      )}
+      <button onClick={()=>setOpen(s=>!s)} className="p-3 rounded-full bg-white shadow-md border border-gray-200">💬</button>
     </div>
   )
 }
