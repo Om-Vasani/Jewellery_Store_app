@@ -28,7 +28,7 @@ export default function Chat(){
     setTimeout(()=> setMessages(m=>[...m, {from:'bot', text:reply}]), 600)
 
     try{
-      const { logMessage } = await import('../firebaseConfig.js')
+      const { logMessage } = await import('./firebaseConfig.js')
       if(logMessage) logMessage({text, at: new Date().toISOString()})
     }catch(e){}
   }
