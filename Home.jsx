@@ -1,30 +1,25 @@
 import React from 'react'
-import ProductCard from '../components/ProductCard.jsx'
+import Chat from '../components/Chat'
 
 export default function Home(){
   return (
-    <section id="home" className="header-hero">
-      <div className="container">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-          <div>
-            <h1 className="text-4xl md:text-5xl font-serif mb-4">Timeless craftsmanship. <span className="text-gold">Modern elegance.</span></h1>
-            <p className="small-muted mb-6">Amidip Jewellers — handcrafted gold and diamond pieces with hallmark authenticity.</p>
-            <div className="flex gap-4">
-              <button className="btn-gold">Shop Now</button>
-              <button className="px-4 py-2 rounded-md border">Learn More</button>
+    <section className="section container">
+      <div style={{display:'flex',gap:24,flexWrap:'wrap',alignItems:'center'}}>
+        <div style={{flex:1,minWidth:260}}>
+          <h1 style={{fontSize:32,margin:0}}>Timeless craftsmanship. Modern elegance.</h1>
+          <p style={{color:'var(--muted)'}}>Amidip Jewellers — handcrafted gold and diamond pieces with hallmark authenticity.</p>
+        </div>
+        <div style={{width:360}}>
+          <div style={{background:'white',padding:16,borderRadius:12,boxShadow:'0 8px 30px rgba(16,16,16,0.06)'}}>
+            <div style={{display:'flex',justifyContent:'space-between',alignItems:'center'}}>
+              <div><div style={{fontSize:12,color:'var(--muted)'}}>Featured</div><div style={{fontWeight:700}}>Solitaire Diamond Ring</div></div>
+              <div style={{fontSize:36}}>💍</div>
             </div>
-          </div>
-
-          <div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <ProductCard title="Solitaire Ring" price="₹85,000" emoji="💍" />
-              <ProductCard title="Gold Pendant" price="₹12,500" emoji="📿" />
-              <ProductCard title="Classic Necklace" price="₹45,000" emoji="📿" />
-              <ProductCard title="Diamond Studs" price="₹32,000" emoji="💎" />
-            </div>
+            <div style={{display:'flex',justifyContent:'space-between',marginTop:12}}><div style={{color:'var(--muted)'}}>22K Gold / GIA-certified</div><div style={{fontWeight:700,color:'var(--gold)'}}>₹85,000</div></div>
           </div>
         </div>
       </div>
+      <Chat />
     </section>
   )
 }

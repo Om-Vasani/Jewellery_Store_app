@@ -1,22 +1,28 @@
 import React from 'react'
-import Navbar from './components/Navbar.jsx'
-import Home from './pages/Home.jsx'
-import Catalog from './pages/Catalog.jsx'
-import Contact from './pages/Contact.jsx'
-import Footer from './components/Footer.jsx'
-import Chat from './components/Chat.jsx'
+import { Routes, Route, Navigate } from 'react-router-dom'
+import Navbar from './components/Navbar'
+import Home from './pages/Home'
+import Catalog from './pages/Catalog'
+import About from './pages/About'
+import Contact from './pages/Contact'
+import Admin from './pages/Admin'
+import Footer from './components/Footer'
 
 export default function App(){
   return (
-    <div>
+    <div className="app-root">
       <Navbar />
       <main>
-        <Home />
-        <Catalog />
-        <Contact />
+        <Routes>
+          <Route path="/" element={<Home/>} />
+          <Route path="/catalog" element={<Catalog/>} />
+          <Route path="/about" element={<About/>} />
+          <Route path="/contact" element={<Contact/>} />
+          <Route path="/admin" element={<Admin/>} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
       </main>
       <Footer />
-      <Chat />
     </div>
   )
 }
