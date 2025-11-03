@@ -3,12 +3,9 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: './',
+  base: '/',  // 👈 મહત્વપૂર્ણ સુધારો
   build: {
     outDir: 'dist',
     emptyOutDir: true,
-  },
-  server: {
-    port: 5173,
   },
 })
