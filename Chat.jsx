@@ -1,6 +1,6 @@
 import React, {useState, useRef, useEffect} from 'react'
-import useChatAI from '../lib/useChatAI.js'
-import { logChat } from '../lib/firebase.js'
+import useChatAI from './useChatAI.js'
+import { logChat } from './firebase.js'
 
 export default function Chat(){
   const [open,setOpen]=useState(false)
