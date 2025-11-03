@@ -2,17 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Classic luxury custom styles */
-:root{ --gold:#B9925F; --muted:#6B7280; --ivory:#FFF9F2; }
+:root{ --gold:#B9925F; --muted:#6B7280; --ivory:#FFF9F2 }
 html,body,#root{height:100%}
-body{ font-family:Poppins, ui-sans-serif, system-ui; background:var(--ivory); color:#111; }
-h1,h2,h3{ font-family:'Playfair Display', serif; }
-.container{ max-width:1100px; margin:0 auto; padding:28px; }
-.header-hero{ background: linear-gradient(90deg,#fffaf1 0%, #fff7ee 100%); padding:48px 0; border-bottom:1px solid rgba(0,0,0,0.03); }
-.card{ background:white; border-radius:12px; padding:16px; box-shadow:0 8px 30px rgba(16,16,16,0.06); }
-.product-hover{ transition: all 220ms ease; }
-.product-hover:hover{ transform: translateY(-6px) scale(1.01); box-shadow:0 14px 40px rgba(16,16,16,0.08); }
-.btn-gold{ background:var(--gold); color:white; padding:10px 16px; border-radius:8px; }
-.small-muted{ color:var(--muted); font-size:0.95rem; }
-.nav-link{ color:rgba(0,0,0,0.8); }
-@media (max-width:640px){ .container{ padding:16px; } }
+body{font-family:Poppins,ui-sans-serif,system-ui;background:var(--ivory);color:#111}
+h1,h2,h3{font-family:'Playfair Display',serif}
+.container{max-width:1100px;margin:0 auto;padding:28px}
+.header-hero{background:linear-gradient(90deg,#fffaf1 0%, #fff7ee 100%);padding:48px 0;border-bottom:1px solid rgba(0,0,0,0.03)}
+.card{background:white;border-radius:12px;padding:16px;box-shadow:0 8px 30px rgba(16,16,16,0.06)}
+.product-hover{transition: all 220ms ease}
+.product-hover:hover{transform: translateY(-6px) scale(1.01);box-shadow:0 14px 40px rgba(16,16,16,0.08)}
+.btn-gold{background:var(--gold);color:white;padding:10px 16px;border-radius:8px}
+.small-muted{color:var(--muted);font-size:0.95rem}
+.nav-link{color:rgba(0,0,0,0.8)}
+@media (max-width:640px){.container{padding:16px}}

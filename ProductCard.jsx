@@ -1,5 +1,5 @@
 import React from 'react'
-export default function ProductCard({title, price, emoji}){
+export default function ProductCard({title, price, emoji}) {
   return (
     <div className="card product-hover">
       <div className="flex items-center gap-4">
